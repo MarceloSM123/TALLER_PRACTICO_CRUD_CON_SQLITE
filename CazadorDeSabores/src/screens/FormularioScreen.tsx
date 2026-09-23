@@ -63,15 +63,18 @@ export default function FormularioScreen({ navigation, route }: any) {
     return (
         <View>
 <Text>Cuentanos cazador de sabores</Text>
+<Text>Restaurante: </Text>
 <TextInput
     placeholder="Ej: El palacio del encebollado"
     value={titulo}
     onChangeText={setTitulo}
 />
+<Text>Comentarios:</Text>
 <TextInput
     value={comentarios}
     onChangeText={setComentarios}
 />
+<Text>Calificacion</Text>
 <TextInput
 placeholder="minimo 0 maximo 10"
 keyboardType="numeric"
