@@ -1,7 +1,6 @@
 import * as SQLite from 'expo-sqlite'
 
-export const initDatabase = async ()=>{
-    const db =await SQLite.openDatabaseAsync('BaseDatos.db');
+export const initDatabase = async (db: SQLite.SQLiteDatabase): Promise<void> => {
     await db.execAsync(
         `PRAGMA journal_mode=WAL;
         CREATE TABLE IF NOT EXISTS registros(
@@ -15,5 +14,4 @@ export const initDatabase = async ()=>{
         `
     );
     console.log('Base de datos local lista')
-    return db;
 }

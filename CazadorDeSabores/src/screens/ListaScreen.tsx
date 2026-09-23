@@ -1,4 +1,5 @@
 import { View, Text, TouchableOpacity, Image, FlatList, StyleSheet, Alert } from 'react-native'
+import { SafeAreaView } from 'react-native-safe-area-context'
 import { useSQLiteContext } from 'expo-sqlite'
 import { useEffect, useState } from 'react'
 import { Ionicons } from '@expo/vector-icons'
@@ -121,12 +122,14 @@ export default function ListaScreen({ navigation }: any) {
                     </View>
                 )}
             />
-            <TouchableOpacity
-                style={estilos.botonFlotante}
-                onPress={() => navigation.navigate('Formulario')}
-            >
-                <Ionicons name="add" size={32} color="#FFFFFF" />
-            </TouchableOpacity>
+            <SafeAreaView style={estilos.contenedorFlotante} edges={['bottom']} pointerEvents="box-none">
+                <TouchableOpacity
+                    style={estilos.botonFlotante}
+                    onPress={() => navigation.navigate('Formulario')}
+                >
+                    <Ionicons name="add" size={32} color="#FFFFFF" />
+                </TouchableOpacity>
+            </SafeAreaView>
         </View>
     );
 }
@@ -166,16 +169,22 @@ const estilos = StyleSheet.create({
     fecha: { fontSize: 12, color: colores.tintaSuave },
     acciones: { flexDirection: 'row', gap: 10 },
     botonAccion: { padding: 4 },
-    botonFlotante: {
+    contenedorFlotante: {
         position: 'absolute',
         right: 20,
-        bottom: 24,
+        bottom: 0,
+        alignItems: 'flex-end',
+        justifyContent: 'flex-end',
+        pointerEvents: 'box-none',
+    },
+    botonFlotante: {
         width: 60,
         height: 60,
         borderRadius: 30,
         backgroundColor: colores.pimenton,
         alignItems: 'center',
         justifyContent: 'center',
+        marginBottom: 24,
         shadowColor: colores.pimentonOscuro,
         shadowOpacity: 0.4,
         shadowRadius: 8,

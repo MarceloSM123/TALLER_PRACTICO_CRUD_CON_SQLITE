@@ -61,7 +61,7 @@ export default function FormularioScreen({ navigation, route }: any) {
             contentContainerStyle={estilos.contenido}
             keyboardShouldPersistTaps="handled"
         >
-            <Text style={estilos.eyebrow}>{idEdicion ? 'Actualizar probada' : 'Nueva probada'}</Text>
+            <Text style={estilos.eyebrow}>{idEdicion ? 'Actualizar degustacion' : 'Nueva degustacion'}</Text>
 
             <Text style={estilos.etiqueta}>¿Qué o dónde probaste?</Text>
             <TextInput
